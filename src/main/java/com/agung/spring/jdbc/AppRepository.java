@@ -1,0 +1,10 @@
+package com.agung.spring.jdbc;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration;
+import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
+
+@Configuration
+@EnableJdbcRepositories
+public class AppRepository extends AbstractJdbcConfiguration {
+}
