@@ -6,5 +6,5 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 
 @Configuration
 @EnableJdbcRepositories
-public class AppRepository extends AbstractJdbcConfiguration {
+public class AppRepositoryConfig extends AbstractJdbcConfiguration {
 }

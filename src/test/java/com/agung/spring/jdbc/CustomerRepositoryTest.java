@@ -1,6 +1,8 @@
 package com.agung.spring.jdbc;
 
+import com.agung.spring.jdbc.entity.Address;
 import com.agung.spring.jdbc.entity.Customer;
+import com.agung.spring.jdbc.repository.AddressRepository;
 import com.agung.spring.jdbc.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
@@ -18,7 +20,7 @@ import java.util.Optional;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = AppRepository.class)
+@SpringBootTest(classes = AppRepositoryConfig.class)
 @AutoConfigureDataJdbc
 @Slf4j
 public class CustomerRepositoryTest {
@@ -26,12 +28,22 @@ public class CustomerRepositoryTest {
     @Autowired
     public  CustomerRepository customerRepository;
 
+    @Autowired
+    public AddressRepository addressRepository;
+
     @Before
     public void populateData(){
         log.debug("run populate data");
+
+        Address address = new Address();
+        address.setId(1);
+        address.setLocation("Nganjuk");
+        address.setProvince("Jawa Timur");
         for (int i=0; i<10; i++){
             Customer customers = new Customer(null,"agung pramono"+i,"agung"+i+"@mail.com");
             customerRepository.save(customers);
+//            address.setCustomer(customers);
+//            addressRepository.save(address);
         }
     }
 
